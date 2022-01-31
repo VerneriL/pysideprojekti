@@ -1,24 +1,8 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 
+from kysymykset import lataa_kysymykset_netistä
 from quiz_ui import Ui_MainWindow
-
-KYSYMYKSET_JA_VASTAUKSET = [
-    (
-        "Mistä Python-ohjelmointikieli on saanut nimensä?",
-        "käärmeestä",
-        "laulusta",
-        "*TV-sarjasta",
-        "elokuvasta",
-    ),
-    (
-        "Paljonko on 5*5",
-        "22",
-        "*25",
-        "27",
-        "35",
-    ),
-]
 
 
 class MainWindow(QMainWindow):
@@ -26,13 +10,14 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.tiedot = lataa_kysymykset_netistä() 
         self.vaihda_kysymys_ja_vastaus(0)
         self.kytke_napit()
         self.pisteet = 0
         self.indeksi = 0
 
     def vaihda_kysymys_ja_vastaus(self, indeksi):
-        tekstit = KYSYMYKSET_JA_VASTAUKSET[indeksi]
+        tekstit = self.tiedot[indeksi]
         uudet_tekstit = []
         for (numero, teksti) in enumerate(tekstit):
             if teksti.startswith("*"):
@@ -78,9 +63,9 @@ class MainWindow(QMainWindow):
             self.pisteet += 1
 
         self.indeksi += 1
-        if self.indeksi >= len(KYSYMYKSET_JA_VASTAUKSET):
+        if self.indeksi >= len(self.tiedot):
             laatikko = QMessageBox(self)
-            laatikko.setText(f"Peli päättyi. Sait {self.pisteet} pistettä!")
+            laatikko.setText(f"Peli päättyi. Sait {self.pisteet}/{len(self.tiedot)} pistettä!")
             laatikko.exec()
             self.indeksi = 0
             self.pisteet = 0
