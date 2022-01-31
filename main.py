@@ -28,6 +28,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.vaihda_kysymys_ja_vastaus(0)
         self.kytke_napit()
+        self.pisteet = 0
+        self.indeksi = 0
 
     def vaihda_kysymys_ja_vastaus(self, indeksi):
         tekstit = KYSYMYKSET_JA_VASTAUKSET[indeksi]
@@ -70,11 +72,16 @@ class MainWindow(QMainWindow):
             nappi = 4
         else:
             return
-            
+
         if nappi == self.oikea_vastaus:
             print("Oikein!")
+            self.pisteet += 1
 
-        print("Painettu nappia!")
+        self.indeksi += 1
+        if self.indeksi >= len(KYSYMYKSET_JA_VASTAUKSET):
+            self.indeksi = 0
+
+        self.vaihda_kysymys_ja_vastaus(self.indeksi)
 
 
 if __name__ == "__main__":
