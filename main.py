@@ -87,6 +87,14 @@ class MainWindow(QMainWindow):
 
         self.vaihda_kysymys_ja_vastaus(self.indeksi)
 
+    @property
+    def pisteet(self):
+        return self._pisteet
+
+    @pisteet.setter
+    def pisteet(self, arvo):
+        self._pisteet = arvo
+        self.ui.statusbar.showMessage(f"Pisteet: {self.pisteet}")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
