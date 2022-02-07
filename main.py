@@ -1,4 +1,7 @@
 import sys
+import time
+
+
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 
 from kysymykset import lataa_kysymykset_netistä
