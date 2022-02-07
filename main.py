@@ -13,6 +13,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.luo_status_widget()
         self.tiedot = lataa_kysymykset_netistä() 
         self.vaihda_kysymys_ja_vastaus(0)
         self.kytke_napit()
