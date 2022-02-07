@@ -2,7 +2,7 @@ import sys
 import time
 
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QLabel
 
 from kysymykset import lataa_kysymykset_netistä
 from quiz_ui import Ui_MainWindow
