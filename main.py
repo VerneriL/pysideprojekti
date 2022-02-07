@@ -104,7 +104,12 @@ class MainWindow(QMainWindow):
     @pisteet.setter
     def pisteet(self, arvo):
         self._pisteet = arvo
+        self.paivita_tilarivi()
+
+    def paivita_tilarivi(self):
         self.ui.statusbar.showMessage(f"Pisteet: {self.pisteet}")
+        self.kierros_label.setText(f"Kierros: {self.kierros}")
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
