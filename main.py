@@ -25,6 +25,7 @@ class MainWindow(QMainWindow):
                 self.oikea_vastaus = numero
             uudet_tekstit.append(teksti)
         self.aseta_tekstit(uudet_tekstit)
+        self.ui.nro_label.setText(f"Kierros {indeksi+1} / {len(self.tiedot)}")
 
     def aseta_tekstit(self, tekstit):
         self.aseta_kysymys(tekstit[0])
