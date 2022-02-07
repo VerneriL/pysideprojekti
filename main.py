@@ -85,6 +85,7 @@ class MainWindow(QMainWindow):
             laatikko = QMessageBox(self)
             laatikko.setText(f"Peli päättyi. Sait {self.pisteet} pistettä!")
             laatikko.exec()
+            self.kierros += 1
             self.indeksi = 0
             self.pisteet = 0
 
