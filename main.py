@@ -59,9 +59,19 @@ class MainWindow(QMainWindow):
         else:
             return
 
+        painettu_nappi = self.sender()
+
         if nappi == self.oikea_vastaus:
             print("Oikein!")
             self.pisteet += 1
+            napin_vari = "rgb(0,255,0)"
+        else:
+            napin_vari = "rgb(255,0,0)"
+
+        painettu_nappi.setStyleSheet("* {background: " + napin_vari + ";}")
+        QApplication.processEvents()
+        time.sleep(0.5)
+        painettu_nappi.setStyleSheet("")
 
         self.indeksi += 1
         if self.indeksi >= len(self.tiedot):
