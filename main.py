@@ -73,10 +73,14 @@ class MainWindow(QMainWindow):
         time.sleep(0.5)
         painettu_nappi.setStyleSheet("")
 
+        self.seuraava_kysymys()
+
+
+    def seuraava_kysymys(self):
         self.indeksi += 1
         if self.indeksi >= len(self.tiedot):
             laatikko = QMessageBox(self)
-            laatikko.setText(f"Peli päättyi. Sait {self.pisteet}/{len(self.tiedot)} pistettä!")
+            laatikko.setText(f"Peli päättyi. Sait {self.pisteet} pistettä!")
             laatikko.exec()
             self.indeksi = 0
             self.pisteet = 0
