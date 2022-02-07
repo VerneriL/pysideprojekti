@@ -21,6 +21,10 @@ class MainWindow(QMainWindow):
         self.pisteet = 0
         self.indeksi = 0
 
+    def luo_status_widget(self):
+        self.kierros_label = QLabel()
+        self.ui.statusbar.addPermanentWidget(self.kierros_label)
+
     def vaihda_kysymys_ja_vastaus(self, indeksi):
         tekstit = self.tiedot[indeksi]
         uudet_tekstit = []
