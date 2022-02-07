@@ -16,6 +16,7 @@ class MainWindow(QMainWindow):
         self.tiedot = lataa_kysymykset_netistä() 
         self.vaihda_kysymys_ja_vastaus(0)
         self.kytke_napit()
+        self.kierros = 1
         self.pisteet = 0
         self.indeksi = 0
 
