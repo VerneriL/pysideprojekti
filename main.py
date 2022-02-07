@@ -93,7 +93,7 @@ class MainWindow(QMainWindow):
             if self.pisteet == len(self.tiedot):
                 self.kierros = 0
                 self.tiedot = lataa_kysymykset_netistä()
-                laatikko.setText(f"Sait kaikki oikein!")
+                laatikko.setText(f"Sait kaikki oikein{self.kierros} kierroksella!")
             else:
                 laatikko.setText(f"Sait {self.pisteet} pistettä. Kokeile uudelleen.")      
             laatikko.exec()
